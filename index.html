@@ -15,6 +15,48 @@
           font-style: normal;
           transform : rotate(0.04deg);
         }
+        /* body태그 자체에 css 요소 부여 */
+        body {
+            font-family: "LeeSeoyun";
+            margin: 0;
+            /* 바깥쪽 여유 공간*/
+            display: flex;
+            justify-content: center;
+            background-image: url("./background.png");
+        }
+        .container{
+            width: 390px;
+            background-color: #ff9d73;
+            height: 100%;
+        }
+
+        .photos{
+            margin-top: 30px;
+        }
+
+        .photo-frame{
+            background-color: white;
+            margin: 15px 20px;
+            /* 상하 15 좌우 20 마진 높이는 200*/
+            height: 200px;
+        }
+        .footer{
+            display:flex;
+            flex-direction: column;
+            /*column은 아래방향으로 정렬 row는 좌우*/
+            align-items: center;
+            /*가운데 정렬*/
+        }
+        .f-title{
+            color:white;
+            font-size:25px;
+            font-weight: 500;
+        }
+        .f-date{
+            color:white;
+            font-size: 15px;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
@@ -43,7 +85,7 @@
         </div>
         <div class ="footer">
             <p class="f-title">Happy Luch Time</p>
-            <p class="f-data">2023.02.02</p>
+            <p class="f-date">2023.02.02</p>
         </div>
    </div>
 </body>

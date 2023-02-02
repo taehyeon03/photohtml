@@ -44,15 +44,16 @@
               contain은 이미지의 크기가 요소의 크기보다 항상 작거나 같다*/
             position: relative;
             /*position(위치)이 뭔가요?
-: HTML 태그의 위치를 잡는 방법
-1. 배치 방법을 정한다(relative, absolute)
-2. 이동 시킨다(top, bottom 등)
+            : HTML 태그의 위치를 잡는 방법
+            1. 배치 방법을 정한다(relative, absolute)
+            2. 이동 시킨다(top, bottom 등)
 
-[위 코드를 해석하자면]
-1. .photo-frame, 넌 .photo-description의 위치를 잡는 기준이 될거야!
-2. .photo-description, 넌 기준으로부터 아래(bottom)에서 0만큼 위로 올라와서 위치해!
-3. 가운데 정렬도 잊지마! → (trnasform과 left는 set메뉴)
-*/
+            [위 코드를 해석하자면]
+            1. .photo-frame, 넌 .photo-description의 위치를 잡는 기준이 될거야!
+            2. .photo-description, 넌 기준으로부터 아래(bottom)에서 0만큼 위로 올라와서 위치해!
+            3. 가운데 정렬도 잊지마! → (trnasform과 left는 set메뉴)
+            */
+            cursor: pointer;
         }
         .footer{
             display:flex;
@@ -102,33 +103,100 @@
             
             transform: translate(-50%);
             left: 50%;
-
+            opacity: 0;
 
         }
+        .video{
+            width: 100%;
+            height: 100%;
+            /*동영상 크기 맞춰서 조절하기*/
+        }
+        .showText{
+            opacity: 0;/*투명도 0% 투명하다. 불투명함*/
+        }
+        .hideText{
+            opacity: 1;
+            transition: opacity 0.5s linear;
+            /* opacity : 투명도를 의미해요! 100% 투명하다. 즉 안보인다. */
+            /* transition : 나타날 때 0.5초동안 천천히 나타나는 효과를 주라는 의미에요 */
+        }
     </style>
+    <script>
+        // 텍스트가 보여지는 기능
+        // 1. 몇 번째 사진에 마우스가 올라갔는지 확인(if문)
+        // 2. 해당 사진을 찾아 hideText class를 지워주고, showText는 삽입해줌
+        function showText(number) {
+        if (number === 1) {
+            document.querySelector("#desc1").classList.remove("hideText");
+            document.querySelector("#desc1").classList.add("showText");
+        } else if (number === 2) {
+            document.querySelector("#desc2").classList.remove("hideText");
+            document.querySelector("#desc2").classList.add("showText");
+        } else {
+            document.querySelector("#desc3").classList.remove("hideText");
+            document.querySelector("#desc3").classList.add("showText");
+        }
+        }
+
+        // 텍스트가 감춰지는 기능
+        // 1. 몇 번째 사진에서 마우스가 벗어났는지 확인(if문)
+        // 2. 해당 사진을 찾아 shotText class를 지워주고, hideText는 삽입해줌
+        function hideText(number) {
+        if (number === 1) {
+            document.querySelector("#desc1").classList.remove("showText");
+            document.querySelector("#desc1").classList.add("hideText");
+        } else if (number === 2) {
+            document.querySelector("#desc2").classList.remove("showText");
+            document.querySelector("#desc2").classList.add("hideText");
+        } else {
+            document.querySelector("#desc3").classList.remove("showText");
+            document.querySelector("#desc3").classList.add("hideText");
+        }
+        }
+
+        // 클릭 기능
+        // 1. 선택된 사진의 숫자를 가진 텍스트를 alert 형태로 출력해줌
+        function alertText(number) {
+            alert(`${number}번째 추억이에요! 눌러주셔서 감사합니다 :)`);
+        }
+    </script>
 </head>
 <body>
    <div class="container">
         <div class = "photos">
-            <div id="img1" class="photo-frame">
+            <div id="img1" class="photo-frame"class="photo-frame"
+	            onmouseover="hideText(1)"
+	            onmouseout="showText(1)"
+	            onclick="alertText(1)"
+            >
                 <span id="desc1"class="photo_description">
                     우리 작년 
                 </span>
             </div>
-            <div id="img2" class="photo-frame">
+            <div id="img2" class="photo-frame"class="photo-frame"
+            	onmouseover="hideText(2)"
+	            onmouseout="showText(2)"
+	            onclick="alertText(2)"
+            >
                 <span id="desc2"class="photo_description">
                     재작년 하이
                 </span>
             </div>
-            <div id="img3" class="photo-frame">
+            <div id="img3" class="photo-frame"class="photo-frame"
+	            onmouseover="hideText(3)"
+	            onmouseout="showText(3)"
+	            onclick="alertText(3)"
+            >
                 <span id="desc3"class="photo_description">
                     코딩 시작한 날
                 </span>
             </div>
-            <div id="img4" class="photo-frame">
-                <span id="desc4"class="photo_description">
-                    html한 날
-                </span>
+            <div class="photo-frame">
+                <iframe
+		            src="https://www.youtube.com/embed/agYZbSt-3LY"
+                    frameborder="0"
+                    class="video"
+	            ></iframe>
             </div>
         </div>
         <div class ="footer">

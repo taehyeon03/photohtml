@@ -39,6 +39,20 @@
             margin: 15px 20px;
             /* 상하 15 좌우 20 마진 높이는 200*/
             height: 200px;
+            background-size: cover;
+            /*cover는 이미지의 크기가 요소의 크기보다 항상 크거나 같다
+              contain은 이미지의 크기가 요소의 크기보다 항상 작거나 같다*/
+            position: relative;
+            /*position(위치)이 뭔가요?
+: HTML 태그의 위치를 잡는 방법
+1. 배치 방법을 정한다(relative, absolute)
+2. 이동 시킨다(top, bottom 등)
+
+[위 코드를 해석하자면]
+1. .photo-frame, 넌 .photo-description의 위치를 잡는 기준이 될거야!
+2. .photo-description, 넌 기준으로부터 아래(bottom)에서 0만큼 위로 올라와서 위치해!
+3. 가운데 정렬도 잊지마! → (trnasform과 left는 set메뉴)
+*/
         }
         .footer{
             display:flex;
@@ -57,6 +71,40 @@
             font-size: 15px;
             font-weight: 500;
         }
+        #img1{
+            background-image: url(./img1.png);
+        }
+        #img2{
+            background-image: url(./img2.png);
+        }
+        #img3{
+            background-image: url(./img3.png);
+        }
+        #img4{
+            background-image: url(./img4.png);
+        }
+        .photo_description{
+            color:white;
+            background-color: black;
+            width: fit-content;
+             /*가로 넓이는 안에 있는 글자에 맞춰서*/
+            padding: 0 20px;
+            /*좌우만 20 늘리기*/
+            margin-bottom: 10px;
+            /*밑에 영역 10주기*/
+            border-radius: 10px;
+             /*글짜 경계선 둥굴게 radius*/
+            position: absolute;
+            /*상위 class에서 position:relative해서 그  class를 기준
+            으로 absolute
+            프레임 기준으로 밑에서 0만큼 위치*/
+            bottom: 0;
+            
+            transform: translate(-50%);
+            left: 50%;
+
+
+        }
     </style>
 </head>
 <body>
@@ -64,22 +112,22 @@
         <div class = "photos">
             <div id="img1" class="photo-frame">
                 <span id="desc1"class="photo_description">
-                    첫번째 이미지 설명
+                    우리 작년 
                 </span>
             </div>
-            <div id="img1" class="photo-frame">
+            <div id="img2" class="photo-frame">
                 <span id="desc2"class="photo_description">
-                    두 번째 이미지 설명
+                    재작년 하이
                 </span>
             </div>
-            <div id="img1" class="photo-frame">
+            <div id="img3" class="photo-frame">
                 <span id="desc3"class="photo_description">
-                    세 번째 이미지 설명
+                    코딩 시작한 날
                 </span>
             </div>
-            <div id="img1" class="photo-frame">
+            <div id="img4" class="photo-frame">
                 <span id="desc4"class="photo_description">
-                    네 번째 이미지 설명
+                    html한 날
                 </span>
             </div>
         </div>

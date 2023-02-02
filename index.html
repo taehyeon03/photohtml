@@ -6,21 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .c{
-            color: red;
-            background-color: beige;
-        }
-    </style>
-    <style>
-        #myid{
-            color: blue;
-            background-color: black;
+        /* 이서윤체 폰트 적용을 위한 코드 */
+        @font-face {
+          font-family: "LeeSeoyun";
+          src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff")
+            format("woff");
+          font-weight: normal;
+          font-style: normal;
+          transform : rotate(0.04deg);
         }
     </style>
 </head>
 <body>
-    <h1 class="c"> 나는 해딩태그 입니다.</h1>
-    <h1 id="myid"> 나는 아이디 해딩태그입니다.</h1>
-  
+   <div class="container">
+        <div class = "photos">
+            <div id="img1" class="photo-frame">
+                <span id="desc1"class="photo_description">
+                    첫번째 이미지 설명
+                </span>
+            </div>
+            <div id="img1" class="photo-frame">
+                <span id="desc2"class="photo_description">
+                    두 번째 이미지 설명
+                </span>
+            </div>
+            <div id="img1" class="photo-frame">
+                <span id="desc3"class="photo_description">
+                    세 번째 이미지 설명
+                </span>
+            </div>
+            <div id="img1" class="photo-frame">
+                <span id="desc4"class="photo_description">
+                    네 번째 이미지 설명
+                </span>
+            </div>
+        </div>
+        <div class ="footer">
+            <p class="f-title">Happy Luch Time</p>
+            <p class="f-data">2023.02.02</p>
+        </div>
+   </div>
 </body>
 </html>
